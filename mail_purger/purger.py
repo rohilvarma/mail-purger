@@ -66,7 +66,7 @@ class Purger:
             self.__imap.login(self.__imap_user, self.__imap_pass)
             self.__update_login_status()
             printStatus.updateDone("Login Successful", progressbar=True)
-        except Exception:
+        except imaplib.IMAP4.error:
             printStatus.updateFailed("Login Failed!")
 
     def __del__(self) -> None:
